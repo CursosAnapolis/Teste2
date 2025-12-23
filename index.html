@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat para Amigos</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="blood-header">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>Chat Sangue</h1>
+            </div>
+            <div class="blood-effect"></div>
+        </header>
+        
+        <main class="main-content">
+            <div class="welcome-card">
+                <div class="blood-drop"></div>
+                <h2>Bem-vindo ao Chat Sangue</h2>
+                <p>Um lugar onde amigos se conectam com segurança e estilo</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Segurança Máxima</h3>
+                        <p>Proteção em camadas contra ataques</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h3>Comunidade</h3>
+                        <p>Conecte-se com seus amigos</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-tools"></i>
+                        <h3>Ferramentas</h3>
+                        <p>Recursos avançados para admin</p>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="login.html" class="btn blood-btn">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </a>
+                    <a href="#" id="requestAccess" class="btn ghost-btn">
+                        <i class="fas fa-user-plus"></i> Solicitar Acesso
+                    </a>
+                </div>
+            </div>
+            
+            <div class="creator-info">
+                <div class="blood-border">
+                    <p>Feito com <i class="fas fa-heart blood-heart"></i> por Erik (17 anos)</p>
+                    <div class="social-links">
+                        <span><i class="fab fa-instagram"></i> @erikslava</span>
+                        <span><i class="fab fa-github"></i> ErikAndGabriel</span>
+                    </div>
+                    <p class="note">Posso demorar para responder, sou trabalhador!</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="blood-footer">
+            <p>© 2024 Chat Sangue - Todos os direitos reservados</p>
+            <p class="warning">Acesso restrito apenas para membros autorizados</p>
+        </footer>
+    </div>
+    
+    <!-- Modal de Solicitação -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content blood-modal">
+            <span class="close">&times;</span>
+            <h2><i class="fas fa-envelope"></i> Solicitar Acesso</h2>
+            <form id="requestForm">
+                <div class="form-group">
+                    <label for="fullName">Nome Completo:</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneEmail">Telefone ou E-mail:</label>
+                    <input type="text" id="phoneEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="desiredUser">Nome de Usuário Desejado:</label>
+                    <input type="text" id="desiredUser" required>
+                </div>
+                <div class="form-group">
+                    <label for="desiredPass">Senha Desejada:</label>
+                    <input type="password" id="desiredPass" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Por que quer entrar no grupo?</label>
+                    <textarea id="reason" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn blood-btn">
+                    <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                </button>
+            </form>
+            <div class="modal-note">
+                <p><i class="fas fa-info-circle"></i> Sua solicitação será enviada para aprovação.</p>
+                <p>Avisarei por e-mail/telefone se você for adicionado ou não.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>
