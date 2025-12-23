@@ -1,0 +1,377 @@
+:root {
+    --blood-red: #8B0000;
+    --dark-red: #5a0000;
+    --darker-red: #3a0000;
+    --light-blood: #cc0000;
+    --black: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --gray: #333;
+    --light-gray: #666;
+    --white: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+}
+
+.blood-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--black) 0%, var(--darker-red) 100%);
+    z-index: -1;
+}
+
+.blood-drops {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.drop {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background: var(--blood-red);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.1;
+    filter: blur(10px);
+    animation: dropFall 10s infinite;
+}
+
+.drop:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.drop:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.drop:nth-child(3) {
+    animation-delay: 6s;
+}
+
+@keyframes dropFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.login-box {
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 40px;
+    border: 2px solid var(--blood-red);
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--light-blood), transparent);
+    animation: bloodFlow 3s infinite;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--light-blood);
+    animation: heartbeat 1.5s infinite;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    background: linear-gradient(45deg, var(--white), var(--light-blood));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+/* Login Form */
+.login-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--light-blood);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--black);
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--light-blood);
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 40px;
+    cursor: pointer;
+    color: var(--light-gray);
+}
+
+.password-toggle:hover {
+    color: var(--light-blood);
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    color: var(--light-gray);
+    font-size: 0.8rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.blood-btn {
+    background: linear-gradient(45deg, var(--darker-red), var(--blood-red));
+    color: var(--white);
+    border: 2px solid var(--light-blood);
+}
+
+.blood-btn:hover {
+    background: linear-gradient(45deg, var(--blood-red), var(--light-blood));
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
+    transform: scale(1.05);
+}
+
+.ghost-btn {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--gray);
+}
+
+.ghost-btn:hover {
+    border-color: var(--light-blood);
+    color: var(--light-blood);
+}
+
+.login-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-links a {
+    color: var(--light-gray);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.login-links a:hover {
+    color: var(--light-blood);
+}
+
+/* Login Footer */
+.login-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray);
+}
+
+.security-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.security-info i {
+    color: var(--light-blood);
+}
+
+.creator-credit {
+    text-align: center;
+    color: var(--light-gray);
+    font-size: 0.8rem;
+}
+
+.creator-credit i {
+    color: var(--light-blood);
+    margin: 0 5px;
+    animation: heartbeat 1s infinite;
+}
+
+/* Ban Modal */
+#banModal .modal-content {
+    text-align: center;
+}
+
+.ban-icon {
+    font-size: 4rem;
+    color: var(--blood-red);
+    margin-bottom: 20px;
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+.ban-timer {
+    font-size: 1.2rem;
+    color: var(--light-blood);
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#banTime {
+    font-size: 1.5rem;
+    animation: pulse 1s infinite;
+}
+
+.ban-stages {
+    background: rgba(139, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.ban-stages h4 {
+    margin-bottom: 10px;
+    color: var(--light-blood);
+}
+
+.ban-stages ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.ban-stages li {
+    margin: 5px 0;
+    padding-left: 10px;
+    position: relative;
+}
+
+.ban-stages li::before {
+    content: '🩸';
+    position: absolute;
+    left: -15px;
+}
+
+/* Request Modal */
+#requestModal .form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+    
+    .login-box {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}
