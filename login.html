@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Chat Sangue</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="blood-background">
+            <div class="blood-drops">
+                <div class="drop" style="top:20%; left:10%"></div>
+                <div class="drop" style="top:60%; left:80%"></div>
+                <div class="drop" style="top:40%; left:50%"></div>
+            </div>
+        </div>
+        
+        <div class="login-box">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-heartbeat pulse"></i>
+                    <h1>Chat Sangue</h1>
+                </div>
+                <p class="subtitle">Entre no mundo dos amigos</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Usuário</label>
+                    <input type="text" id="username" required autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                    <div class="password-toggle">
+                        <i class="fas fa-eye" id="togglePassword"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="codeGroup" style="display: none;">
+                    <label for="verificationCode"><i class="fas fa-key"></i> Código de Verificação</label>
+                    <input type="text" id="verificationCode" maxlength="6">
+                    <small>Enviado via webhook</small>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn blood-btn">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
+                    <a href="index.html" class="btn ghost-btn">
+                        <i class="fas fa-home"></i> Voltar
+                    </a>
+                </div>
+                
+                <div class="login-links">
+                    <a href="#" id="requestAccessLink">
+                        <i class="fas fa-user-plus"></i> Solicitar Acesso
+                    </a>
+                </div>
+            </form>
+            
+            <div class="login-footer">
+                <div class="security-info">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Proteção anti-força bruta ativada</p>
+                </div>
+                <div class="creator-credit">
+                    <p>Feito com <i class="fas fa-heart"></i> por Erik</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ban Warning Modal -->
+        <div id="banModal" class="modal">
+            <div class="modal-content blood-modal">
+                <div class="ban-icon">
+                    <i class="fas fa-ban"></i>
+                </div>
+                <h2>Acesso Bloqueado</h2>
+                <div id="banMessage">
+                    <p>Muitas tentativas de login falhas detectadas.</p>
+                    <p class="ban-timer" id="banTimer">Tempo restante: <span id="banTime">1 minuto</span></p>
+                </div>
+                <div class="ban-stages">
+                    <h4>Penalidades por tentativas:</h4>
+                    <ul>
+                        <li>3 falhas: 1 minuto</li>
+                        <li>4 falhas: 5 minutos</li>
+                        <li>5 falhas: 10 minutos</li>
+                        <li>6 falhas: 30 minutos</li>
+                        <li>7 falhas: 1 hora</li>
+                        <li>8 falhas: 1 dia</li>
+                        <li>9+ falhas: Ban permanente</li>
+                    </ul>
+                </div>
+                <button onclick="location.reload()" class="btn ghost-btn">
+                    <i class="fas fa-redo"></i> Tentar Novamente
+                </button>
+            </div>
+        </div>
+        
+        <!-- Request Modal -->
+        <div id="requestModal" class="modal">
+            <div class="modal-content blood-modal">
+                <span class="close">&times;</span>
+                <h2><i class="fas fa-envelope"></i> Solicitar Acesso</h2>
+                <form id="requestForm">
+                    <div class="form-group">
+                        <label for="fullName">Nome Completo:</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneEmail">Telefone ou E-mail:</label>
+                        <input type="text" id="phoneEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="desiredUser">Nome de Usuário Desejado:</label>
+                        <input type="text" id="desiredUser" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="desiredPass">Senha Desejada:</label>
+                        <input type="password" id="desiredPass" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Por que quer entrar no grupo?</label>
+                        <textarea id="reason" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn blood-btn">
+                        <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>
