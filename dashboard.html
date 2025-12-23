@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Chat Sangue</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-profile">
+                <img id="profilePic" src="" alt="Profile" class="profile-pic">
+                <h3 id="username">Usuário</h3>
+                <span id="userRole" class="role-tag">Membro</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="chat.html" class="nav-item active">
+                    <i class="fas fa-comments"></i> Chat Geral
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-user-cog"></i> Configurações
+                </a>
+                <a href="terminal.html" class="nav-item">
+                    <i class="fas fa-terminal"></i> Terminal
+                </a>
+                <a href="hacker-tools.html" class="nav-item">
+                    <i class="fas fa-user-secret"></i> Ferramentas
+                </a>
+                <a href="payload-generator.html" class="nav-item">
+                    <i class="fas fa-code"></i> Payload Generator
+                </a>
+                <a href="admin.html" class="nav-item admin-only">
+                    <i class="fas fa-crown"></i> Admin Panel
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar mensagens...">
+                </div>
+                <div class="top-bar-actions">
+                    <button class="btn notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="btn settings-btn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <div class="content-area">
+                <!-- Content will be loaded here -->
+                <div class="welcome-message">
+                    <h1>Bem-vindo ao Chat Sangue</h1>
+                    <p>Selecione uma opção no menu para começar</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>
