@@ -1,0 +1,378 @@
+:root {
+    --blood-red: #8B0000;
+    --dark-red: #5a0000;
+    --darker-red: #3a0000;
+    --light-blood: #cc0000;
+    --black: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --gray: #333;
+    --light-gray: #666;
+    --white: #f0f0f0;
+    --error: #ff4444;
+    --success: #00aa00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Blood Header */
+.blood-header {
+    background: linear-gradient(135deg, var(--darker-red) 0%, var(--black) 100%);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--blood-red);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+.blood-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--light-blood), transparent);
+    animation: bloodFlow 3s infinite;
+}
+
+@keyframes bloodFlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1;
+    position: relative;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--light-blood);
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, var(--white), var(--light-blood));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--gray) 100%);
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid var(--blood-red);
+    position: relative;
+    overflow: hidden;
+}
+
+.blood-drop {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background: var(--blood-red);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: -50px;
+    right: -30px;
+    opacity: 0.3;
+    filter: blur(5px);
+}
+
+.welcome-card h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--light-blood);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.feature {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--blood-red);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature i {
+    font-size: 2rem;
+    color: var(--light-blood);
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.blood-btn {
+    background: linear-gradient(45deg, var(--darker-red), var(--blood-red));
+    color: var(--white);
+    border: 2px solid var(--light-blood);
+}
+
+.blood-btn:hover {
+    background: linear-gradient(45deg, var(--blood-red), var(--light-blood));
+    box-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
+    transform: scale(1.05);
+}
+
+.ghost-btn {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--gray);
+}
+
+.ghost-btn:hover {
+    border-color: var(--light-blood);
+    color: var(--light-blood);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Creator Info */
+.creator-info {
+    background: var(--dark-gray);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.blood-border {
+    border: 2px solid var(--blood-red);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.blood-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--light-blood);
+    animation: bloodFlow 4s infinite;
+}
+
+.blood-heart {
+    color: var(--light-blood);
+    animation: heartbeat 1s infinite;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.social-links span {
+    background: rgba(139, 0, 0, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--blood-red);
+}
+
+.note {
+    font-style: italic;
+    color: var(--light-gray);
+    margin-top: 10px;
+}
+
+/* Footer */
+.blood-footer {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    background: var(--darker-red);
+    border-radius: 10px;
+    border-top: 2px solid var(--light-blood);
+}
+
+.warning {
+    color: var(--light-blood);
+    font-weight: bold;
+    margin-top: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--gray) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid var(--blood-red);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.blood-modal {
+    position: relative;
+    overflow: hidden;
+}
+
+.blood-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--light-blood);
+    animation: bloodFlow 2s infinite;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: var(--light-blood);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--light-blood);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background: var(--black);
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.modal-note {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(139, 0, 0, 0.1);
+    border-radius: 5px;
+    border-left: 3px solid var(--blood-red);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
